@@ -1,7 +1,7 @@
 #include <math.h>
-#include <roboticscape.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdint.h>
 extern "C" {
   #include <roboticscape.h>
   #include <rc_usefulincludes.h>
@@ -9,7 +9,7 @@ extern "C" {
 
 int main(void)
 {
-  double ch1pos;
+  int ch1pos;
 
   rc_initialize();
 
@@ -17,8 +17,9 @@ int main(void)
 
   while(runs){
     // position of enocder attached to port A
-    ch1pos = int rc_get_encoder_pos(1); 
+    ch1pos = rc_get_encoder_pos(1); 
     printf("Current position: %f\n", ch1pos);
+    --runs;
   }
   printf(" All readings completed.\n");
 }
