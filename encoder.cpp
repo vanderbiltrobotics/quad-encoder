@@ -11,9 +11,7 @@ extern "C" {
 
 int main(void)
 {
-  double ch1pos, ch1rev;
-  //25% duty cycle on a 50 Hz cycle = 0.25(0.02)= 0.005s
-  // uint64_t ptime = time_t(NULL); 
+  double ch1pos, ch1rev, ch2pos, ch2rev, ch3pos, ch3rev, ch4pos, ch4rev;
 
   rc_initialize();
 
@@ -21,9 +19,18 @@ int main(void)
 
   while(true){
     // position of enocder attached to port A
-    ch1pos = rc_get_encoder_pos(2); 
+    ch1pos = rc_get_encoder_pos(1); 
     ch1rev = ch1pos/255;
-    printf("Current position: %f\n Current Revolution: %f\n", ch1pos, ch1rev);
+   // ch2pos = rc_get_encoder_pos(2);
+   // ch2rev = ch2pos/255;
+   // ch3pos = rc_get_encoder_pos(3);
+   // ch3rev = ch3pos/255;
+   // ch4pos = rc_get_encoder_pos(4);
+   // ch4rev = ch4pos/255;
+   printf("CH1\n Current position: %f\n Current Revolution: %f\n", ch1pos, ch1rev);
+   // printf("CH2\n Current position: %f\n Current Revolution: %f\n", ch2pos, ch2rev);
+   // printf("CH3\n Current position: %f\n Current Revolution: %f\n", ch3pos, ch3rev);
+   // printf("CH4\n Current position: %f\n Current Revolution: %f\n", ch4pos, ch4rev);
     usleep(100000);
     //--runs;
   }
